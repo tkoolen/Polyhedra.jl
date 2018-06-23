@@ -1,11 +1,6 @@
 # Mandatory
 export polyhedron, hrep, vrep, eliminate, hrepiscomputed, vrepiscomputed, loadpolyhedron!
 
-if VERSION < v"0.5-"
-  export normalize
-  normalize(v,p=2) = v / norm(v,p)
-end
-
 polyhedron{N, T}(rep::Representation{N, T}) = polyhedron(rep, getlibraryfor(N, T))
 Base.push!{N}(p::Polyhedron{N}, ine::HRepresentation{N})                             = error("push! not implemented for $(typeof(p)) for HRepresentation")
 Base.push!{N}(p::Polyhedron{N}, ext::VRepresentation{N})                             = error("push! not implemented for $(typeof(p)) for VRepresentation")
